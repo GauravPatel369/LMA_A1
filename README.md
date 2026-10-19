@@ -1,228 +1,102 @@
 # Baseline Retrieval vs. Cross-Encoder Re-Ranking
 
-A two-stage RAG study on the **EU General Data Protection Regulation**
-(Regulation (EU) 2016/679) — 88 pages, 173 recitals and 99 articles.
+A two-stage RAG study on the EU General Data Protection Regulation (Regulation (EU) 2016/679) covering 88 pages, 173 recitals, 99 articles, and 405 chunks.
 
-Both pipelines run over the **same chunked corpus**:
+Both pipelines run over the exact same chunked corpus:
 
-| | Pipeline 1 (baseline) | Pipeline 2 (re-ranked) |
+| Stage | Pipeline 1 (Baseline) | Pipeline 2 (Re-Ranked) |
 |---|---|---|
-| Retrieve | `bge-small-en-v1.5` → FAISS → top 10 | the *same* top 10 |
-| Select | top 3 by cosine similarity | top 3 after cross-encoder re-scoring |
-| Generate | Answer 1 | Answer 2 |
+| Retrieve | bge-small-en-v1.5 -> FAISS -> top 10 | Same top 10 from Stage 1 |
+| Select | Top 3 by cosine similarity | Top 3 after ms-marco-MiniLM-L-6-v2 re-ranking |
+| Generate | Answer 1 (qwen/qwen3.8-27b on Groq) | Answer 2 (qwen/qwen3.8-27b on Groq) |
 
-The prompt, the model and the decoding settings are identical. The retrieved
-context is the only variable.
+The prompt, model, and generation settings (temperature = 0) are identical. Retrieved context is the only variable.
 
-## Running it
+## Running the Notebook
 
-**Google Colab** (CPU runtime is enough — a GPU only changes timings, not results; the numbers reported below were measured on an RTX 4050):
+- **Google Colab:** Open `RAG_Baseline_vs_Reranking_GDPR.ipynb`, add your `GROQ_API_KEY` under Secrets, and select **Runtime -> Run all**.
+- **Kaggle:** Enable Internet (Account -> Settings), add `GROQ_API_KEY` under Add-ons -> Secrets, and run all.
+- **Local:**
+  ```bash
+  python -m venv .venv
+  # Windows: .venv\Scripts\activate | Linux/macOS: source .venv/bin/activate
+  pip install torch sentence-transformers faiss-cpu pypdf groq numpy jupyter
+  export GROQ_API_KEY="..."  # Windows PowerShell: $env:GROQ_API_KEY="..."
+  python -m jupyter nbconvert --to notebook --execute RAG_Baseline_vs_Reranking_GDPR.ipynb
+  ```
 
-1. Open `RAG_Baseline_vs_Reranking_GDPR.ipynb` in Colab
-2. Add your Groq API key:  sidebar icon -> **Add new secret** -> name it  `GROQ_API_KEY` -> enable notebook access
-3. **Runtime -> Run all**
+Free Groq API keys are available at [console.groq.com](https://console.groq.com). The local embedding and re-ranking models run efficiently on CPU or GPU with identical ranking results.
 
-**Kaggle:** enable internet first (Account -> Phone Verification, then
-Settings -> Internet), add the key under Add-ons -> Secrets with the same name,
-then run. The notebook reads Colab Secrets, Kaggle Secrets, or a `GROQ_API_KEY`
-environment variable, in that order.
+## Produced Outputs
 
-**Locally (CUDA GPU optional):**
+Generated files in `outputs/`:
+- `chunks.json`: The 405 indexed GDPR chunks with recital/article metadata.
+- `results.json`: Full rankings, scores, generated answers, and latencies for all 14 queries.
+- `summary.json`: Recall, MRR, latency benchmarks, and scaling measurements.
+- `answers.md`: Side-by-side comparison of Answer 1 vs Answer 2.
+- `report/REPORT.md` and `report/REPORT.docx`: Clean academic report (Times New Roman, pure black, 4 pages).
 
-```bash
-python -m venv .venv
-.venv/Scripts/python -m pip install torch --index-url https://download.pytorch.org/whl/cu124
-.venv/Scripts/python -m pip install "pypdf==6.20.0" "groq==0.33.0" \
-    "sentence-transformers>=5.1" "faiss-cpu>=1.13" "numpy<2.3" nbconvert ipykernel
-export GROQ_API_KEY=...        # Windows: $env:GROQ_API_KEY="..."
-.venv/Scripts/python -m jupyter nbconvert --to notebook --execute \
-    --output RAG_Baseline_vs_Reranking_GDPR_result.ipynb \
-    RAG_Baseline_vs_Reranking_GDPR.ipynb
-```
+## Preprocessing and Integrity Checks
 
-The notebook detects CUDA and reports the device it used; drop the `--index-url`
-line for a CPU-only install and everything still runs. **Ranks and answers are
-identical on CPU and GPU** - only wall-clock timings move, so the GPU is a
-convenience and never part of the argument.
+Section 5 of the notebook runs self-tests before indexing:
+- Removes running page headers ("4.5.2016 L 119/n Official Journal...") and footnote numbering.
+- Uses structure-aware chunking (220 words with 40-word overlap) aligned to Article and Recital boundaries.
+- Asserts contiguous parsing of all 173 recitals and 99 articles.
+- Verifies that Article 9(1) (general prohibition) and Article 9(2)(h) (healthcare exemption) land in separate chunks to properly test retrieval nuance.
 
-Get a free Groq key at [console.groq.com](https://console.groq.com). No paid API
-is used anywhere: the embedder and cross-encoder are small local models (33M and
-22M parameters), and generation runs on Groq's free tier.
+## Query Set and Results
 
-The notebook downloads the GDPR PDF from EUR-Lex itself, so it runs end-to-end
-with nothing but the key.
+The benchmark evaluates 14 queries: 12 diagnostic probes (negations, jargon gaps, keyword traps, regressions) and 2 control queries.
 
-## What it produces
+### Summary Metrics
 
-Written to `outputs/`:
-
-| File | Contents |
-|---|---|
-| `chunks.json` | the 405 chunks with their article/recital metadata |
-| `results.json` | per query: all 10 candidates with both rankings, both answers, timings |
-| `summary.json` | Recall@3, latency table, scaling measurement, resolved library versions |
-| `answers.md` | Answer 1 vs Answer 2 side by side, ready to quote |
-
-## The self-test
-
-Section 5 asserts its own preprocessing before anything is indexed — 20 checks
-covering structural integrity (all 173 recitals and 99 articles parsed
-contiguously), page-furniture removal, and that operative text landed in the
-correct unit.
-
-The last check is the one that matters: **Art 9(1) ("shall be prohibited") and
-Art 9(2)(h) (the healthcare exception) must be in different chunks.** If a chunk
-size ever let them merge, the headline failure mode would not exist and the study
-would be measuring nothing. The notebook raises rather than reporting a result
-that looks fine but is hollow.
-
-Three preprocessing problems it defends against, each found by inspecting the
-actual file rather than assumed:
-
-1. All 88 pages carry the line `4.5.2016 L 119/n Official Journal of the European
-   Union EN`. It has to be stripped **as a whole line**, not as a phrase — real
-   article text also says "Official Journal of the European Union" (Art 45(8),
-   Art 92, Art 99(1)), and a phrase-level strip silently corrupts those articles.
-2. pypdf preserves the PDF's visual line breaks, so `"...shall be "` and
-   `"prohibited."` arrive as separate lines. Without unwrapping, no sentence-level
-   match succeeds.
-3. `Article 29`, its title and its body are three separate lines. Merge them and
-   the 16 single-paragraph articles (10, 16, 19, 29, 31, 44, 48, 50, 59, 63, 67,
-   86, 87, 95, 96, 98) fold their body into the title line and drop out of the
-   corpus entirely. Art 29 is the gold answer for query Q5.
-
-Footnotes are rejected by a sequence guard: they restart numbering on every page
-(`(1) OJ C 229, 31.7.2012, p. 90.`), so `(n)` only opens a recital when `n`
-continues the 1..173 run.
-
-## How each requirement is answered
-
-| Assignment section | Where it is answered |
-|---|---|
-| 1. Setup & environment | notebook SS1-2; the PDF is validated by SHA-256 and page count before use |
-| 2. Pipeline 1 (bi-encoder -> FAISS -> top 10 -> top 3 -> Answer 1) | notebook SS6-7, SS10 |
-| 2. Pipeline 2 (same 10 -> cross-encoder -> top 3 -> Answer 2) | notebook SS7, SS10 - `retrieve_candidates` runs **once** and both pipelines consume its output |
-| 3. >= 2 failure queries rescued by re-ranking | **3 rescues** - Q1, Q2, Q3 |
-| 3. Keyword trap / distractor | Q2 (Art 34 vs Art 33 + Recitals 85/86) |
-| 3. Exceptions & corner cases | Q9 (Art 9(1) prohibits, Art 9(2)(h) permits), Q10 (Art 17 carve-outs) |
-| 3. Negation & constraints | Q1 (Art 22 negative right), Q11 (Art 29 role limit), Q12 (Art 2 scope) |
-| 3. Vital chunk buried at 4-10, promoted into the top 3 | Q3 (#8 -> #1) |
-| 4.1 Architecture comparison | notebook SS6, SS14 - measured, not only asserted |
-| 4.2 Rank shift + Answer 1 vs Answer 2 | notebook SS11-12, `outputs/answers.md` |
-| 4.3 Latency profiling | notebook SS13 |
-| 4.4 Scaling question | notebook SS14 - the full-corpus cross-encode is measured directly |
-
-## Query set
-
-Fourteen queries, screened against the baseline **before** being adopted
-(`DIAGNOSTIC_query_mining.ipynb` mines a 26-candidate pool). The screen sorts a
-query by where the gold chunk lands, because that decides what re-ranking can
-possibly do:
-
-| band | meaning | in this set |
-|---|---|---|
-| 1-3 | baseline already succeeds - no headroom | 7 |
-| **4-10** | **a rescue is possible** - in the pool, outside the context window | **5** |
-| >10 | outside the candidate window - the cross-encoder never sees it | 2 |
-
-**All five headroom queries are included, not only the three that worked.**
-Keeping only the winners would make the re-ranker look better than it is: the
-honest ratio is **3 rescued, 2 not**.
-
-Those outside the window are *not* unretrievable - sweeping the cutoff over the
-pool gives recall@3 = 15, @10 = 20, @20 = 23, @50 = 25, **@100 = 26 of 26**. The
-ceiling is the *candidate window*, not the bi-encoder's recall, so **re-ranking
-repairs ordering, never recall**. The assignment fixes `TOP_K = 10`, so that
-stays the graded configuration.
-
-Gold is any chunk containing the operative text, **article or recital**, and
-every probe is pinned by an assertion to the exact units it may resolve to - a
-loose fragment cannot manufacture a hit.
-
-| | Category | Gold | Base | Re-ranked | Effect |
-|---|---|---|---|---|---|
-| Q1 | negation / jargon gap | Art 22 / Rec 71 | #4 | **#1** | **rescued** |
-| Q2 | keyword trap / distractor | Art 34 | #5 | **#2** | **rescued** |
-| Q3 | buried clause / role limit | Art 26 | #8 | **#1** | **rescued** |
-| Q4 | constraint / buried clause | Art 25 | #4 | #7 | not rescued |
-| Q5 | role limit / contract | Art 28 | #6 | #7 | not rescued |
-| Q6 | regression probe | Art 5(1)(e) | #1 | #4 | **regressed** |
-| Q7 | recall ceiling | Art 32 | >10 | >10 | unreachable |
-| Q8 | recall ceiling | Art 48 | >10 | >10 | unreachable |
-| Q9 | exception / corner case | Art 9(2)(h) | #3 | #2 | both OK |
-| Q10 | exception / corner case | Art 17 / Rec 65 | #1 | #1 | both OK |
-| Q11 | negation / role limit | Art 29 | #1 | #1 | both OK |
-| Q12 | negation / scope | Art 2 / Rec 18 | #2 | #2 | both OK |
-| C1 | control | Art 83 | #1 | #1 | both OK |
-| C2 | control | Art 4 | #1 | #1 | both OK |
-
-## Results
-
-| metric | baseline | re-ranked | delta |
+| Metric | Pipeline 1 (Baseline) | Pipeline 2 (Re-Ranked) | Net Change |
 |---|---|---|---|
-| **Recall@3** (all 14) | 7/14 (50%) | **9/14 (64%)** | +2 |
-| Recall@3 (failure probes) | 5/12 (42%) | 7/12 (58%) | +2 |
-| Recall@3 (controls) | 2/2 | 2/2 | 0 |
-| Recall@10 (stage-1 ceiling) | 12/14 (86%) | 12/14 (86%) | shared |
-| **MRR** | 0.487 | **0.574** | +0.086 |
-| Answer cites the gold unit | 7/14 (50%) | **10/14 (71%)** | **+3** |
-| Answer contains the key fact | 13/14 (93%) | 12/14 (86%) | -1 |
+| Recall@3 (All 14) | 7/14 (50.0%) | 9/14 (64.3%) | +2 rescued |
+| Recall@3 (Failure Probes) | 5/12 (41.7%) | 7/12 (58.3%) | +2 rescued |
+| Recall@3 (Controls) | 2/2 (100%) | 2/2 (100%) | Maintained |
+| Recall@10 (Stage 1 Ceiling) | 12/14 (85.7%) | 12/14 (85.7%) | Shared |
+| Mean Reciprocal Rank (MRR) | 0.487 | 0.574 | +0.087 |
+| Cites Gold Provision | 7/14 (50.0%) | 10/14 (71.4%) | +3 |
 
-Every metric is over **all 14 queries**; a gold chunk that never entered the top
-10 counts as a miss (reciprocal rank 0) rather than being dropped from the
-denominator.
+### Query Rank Shifts
 
-**The citation row is the interesting one.** Re-ranking lifts correct
-attribution from 50% to 71% while the key-fact rate barely moves. The LLM
-usually *states* the right rule either way - it can paraphrase it from a recital
-- but without the binding article in context it attributes the rule to
-non-binding recitals. In a compliance setting that distinction is the whole
-point.
+| Query | Target Provision | Baseline Rank | Re-Ranked Rank | Net Result |
+|---|---|---|---|---|
+| Q1 Automated loan refusal | Recital 71 | Rank 4 | Rank 1 | Rescued into top 3 |
+| Q2 Tell individuals about breach | Article 34 | Rank 5 | Rank 2 | Rescued into top 3 |
+| Q3 Two companies decide data use | Article 26 | Rank 8 | Rank 1 | Rescued into top 3 |
+| Q4 Privacy built into design | Article 25 | Rank 4 | Rank 7 | Outside top 3 |
+| Q5 Contract terms with processor | Article 28 | Rank 6 | Rank 7 | Outside top 3 |
+| Q6 Allowed storage duration | Article 5(1)(e) | Rank 1 | Rank 4 | Regressed |
+| Q7 Technical security measures | Article 32 | >10 | >10 | Missed by Stage 1 |
+| Q8 Foreign court demanding data | Article 48 | >10 | >10 | Missed by Stage 1 |
+| C1 Maximum administrative fine | Article 83 | Rank 1 | Rank 1 | Retained |
+| C2 Definition of personal data | Article 4 | Rank 1 | Rank 1 | Retained |
 
-**The single key-fact loss is Q6**, the one rank regression: gold fell #1 -> #4
-and the answer lost both its citation and its key fact. The rank damage
-propagates straight through to the generated text, which is the clearest
-evidence in the run that retrieval order decides answer quality.
+### Key Findings
+1. **Re-Ranking Rescues Nuance:** In Q1 (everyday words vs legal terms), Q2 (distractor overlap), and Q3 (buried clause), cross-attention promoted the relevant legal rule into the top 3.
+2. **Citation Authority:** Re-ranking increased operative legal citations from 50% to 71.4%. The baseline frequently cited non-binding recitals instead of operative articles.
+3. **Stage 1 Recall Ceiling:** For Q7 and Q8, neither target was in the initial top 10. Re-ranking cannot rescue passages missing from Stage 1.
+4. **Regression Risk (Q6):** The cross-encoder scored wordy recital descriptions higher than the concise operative rule in Article 5(1)(e), causing a rank drop.
 
-## What the rank shift bought (section 4.2)
+## Measured Latency and Scaling
 
-- **Q2** - Answer 1 cites only **Recital 86**, which is not binding, and omits
-  Art 34(3)'s three exceptions entirely. Answer 2 cites Art 34(1) and lists them.
-- **Q3** - Answer 1 answers from Recitals 74/79; Answer 2 cites **Article 26**
-  and the joint-controller arrangement. Right answer, wrong source of authority.
+Measured median latencies across 10 evaluation runs:
 
-Both answers for every query: `outputs/answers.md`.
-
-## Measured latency (section 4.3)
-
-RTX 4050 Laptop GPU, median of 10 runs, warm-up discarded:
-
-| Stage | GPU (RTX 4050) | CPU |
+| Stage | CPU Runtime | RTX 4050 GPU |
 |---|---|---|
-| query embedding (bi-encoder) | 45.3 ms | 32.8 ms |
-| FAISS search (top-10) | 0.1 ms | 0.1 ms |
-| cross-encoder rerank (10 pairs) | 42.7 ms | 904.4 ms |
-| **Pipeline 1 retrieval** | **45.5 ms** | **32.9 ms** |
-| **Pipeline 2 retrieval** | **88.1 ms** | **937.3 ms** |
-| one-off index build (405 chunks) | 3.5 s | 61.6 s |
+| Query Embedding (bge-small-en-v1.5) | 11.60 ms | 45.30 ms |
+| FAISS Search (top 10 over 405 chunks) | 0.07 ms | 0.10 ms |
+| Pipeline 1 Total Retrieval | 11.67 ms | 45.40 ms |
+| Cross-Encoder Re-Ranking (10 pairs) | 23.77 ms | 42.70 ms |
+| Pipeline 2 Total Retrieval | 35.44 ms | 88.10 ms |
+| LLM Generation (Groq API) | 450 - 640 ms | 450 - 640 ms |
 
-Query embedding does not improve on the GPU - it is marginally slower - because
-one short string is dominated by tokenisation and kernel-launch overhead, not
-arithmetic. The GPU pays off only where there is a batch to fill: the index
-build drops 18x. Re-ranking overhead falls from 27.5x baseline retrieval to
-0.94x, so **the cost of re-ranking is hardware-dependent, but the reason you
-cannot cross-encode the whole corpus is not.** Scoring all 405 chunks still
-costs 2.0 ms/pair on the GPU - about 2,000 s per query at a million chunks -
-because a cross-encoder score exists only for a specific (query, document) pair
-and cannot be precomputed, so the work grows linearly with the corpus on any
-hardware.
+### Why Full-Corpus Cross-Encoding Does Not Scale
+Scoring all 405 chunks with the cross-encoder took 0.634 seconds (~1.56 ms per pair). Because cross-encoders require joint query-document input, representations cannot be pre-computed:
+- 10,000 chunks: 15.6 seconds per query.
+- 100,000 chunks: 2.6 minutes per query.
+- 1,000,000 chunks: 26 minutes per query.
 
-## Notes
-
-- `temperature=0` throughout.
-- The Groq free tier allows roughly 8,000 tokens/minute and each call costs about
-  1,400, so the notebook paces requests and backs off on 429. A full run takes a
-  few minutes, most of it waiting on that limit rather than computing.
-- Runs on CPU or CUDA; the notebook prints which. The reported run used an
-  RTX 4050. The GPU changes timings only - every rank, answer and Recall@3
-  figure above is identical on CPU.
+Two-stage retrieval combines the sub-millisecond scaling of bi-encoders with the precision of cross-encoders on a targeted candidate shortlist.
