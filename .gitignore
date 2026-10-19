@@ -1,0 +1,31 @@
+# secrets - never commit
+api.txt
+.env
+*.key
+
+# The corpus data file is committed
+data/*
+!data/gdpr.pdf
+
+# runtime copy the notebook writes into its working directory
+/gdpr.pdf
+dev/gdpr.pdf
+_probe.pdf
+
+# Python / notebook / environment noise
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Office / temporary lock files
+~$*.docx
+*.tmp
+
+# Ignore remaining development, diagnostic, and assignment prompt files
+dev/
+DIAGNOSTIC_query_mining.ipynb
+RAG_LMA_Assignment_v1.pdf
+harshal.ipynb
+report/SKELETON.md

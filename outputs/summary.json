@@ -1,0 +1,324 @@
+{
+  "versions": {
+    "pypdf": "6.20.0",
+    "groq": "0.33.0",
+    "sentence-transformers": "6.1.0",
+    "faiss-cpu": "1.15.1",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.20.1",
+    "numpy": "2.2.6"
+  },
+  "corpus": {
+    "document": "Regulation (EU) 2016/679 (GDPR)",
+    "pages": 88,
+    "recitals": 173,
+    "articles": 99,
+    "chunks": 405,
+    "max_words": 220,
+    "overlap_words": 40
+  },
+  "models": {
+    "bi_encoder": "BAAI/bge-small-en-v1.5",
+    "cross_encoder": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "llm": "qwen/qwen3.8-27b",
+    "top_k": 10,
+    "top_n": 3
+  },
+  "recall_at_3": {
+    "overall": {
+      "baseline": 7,
+      "reranked": 9,
+      "n": 14
+    },
+    "failure_probes": {
+      "baseline": 5,
+      "reranked": 7,
+      "n": 12
+    },
+    "controls": {
+      "baseline": 2,
+      "reranked": 2,
+      "n": 2
+    }
+  },
+  "metrics": {
+    "n_queries": 14,
+    "recall_at_10_stage1": 12,
+    "mrr": {
+      "baseline": 0.4875,
+      "reranked": 0.574
+    },
+    "answer_cites_gold_unit": {
+      "baseline": 7,
+      "reranked": 10,
+      "n": 14
+    },
+    "answer_has_key_fact": {
+      "baseline": 13,
+      "reranked": 12,
+      "n": 14
+    },
+    "headroom": {
+      "n_rank_4_to_10": 5,
+      "rescued": 3,
+      "no_headroom": 7,
+      "outside_window": 2
+    }
+  },
+  "latency_ms": {
+    "query_embed": 11.602099999436177,
+    "faiss_search": 0.06954999844310805,
+    "rerank_10_pairs": 23.771299995132722,
+    "pipeline1_retrieval": 11.671649997879285,
+    "pipeline2_retrieval": 35.44294999301201,
+    "llm_answer_1": 452.61895000294317,
+    "llm_answer_2": 640.71910000348,
+    "per_candidate_rerank": 2.377129999513272,
+    "n_runs": 10
+  },
+  "scaling": {
+    "full_corpus_rerank_s": 0.6336233999900287,
+    "per_pair_ms": 1.5645022221976017,
+    "index_build_s": 1.8519993999943836
+  },
+  "rank_shifts": [
+    {
+      "qid": "Q1",
+      "category": "negation / jargon gap",
+      "gold_article": "Article 22 / Recital 71",
+      "baseline_rank": 4,
+      "reranked_rank": 1,
+      "baseline_top3": [
+        "Recital 18",
+        "Recital 43",
+        "Recital 28"
+      ],
+      "reranked_top3": [
+        "Recital 71",
+        "Recital 18",
+        "Recital 80"
+      ]
+    },
+    {
+      "qid": "Q2",
+      "category": "keyword trap / distractor",
+      "gold_article": "Article 34",
+      "baseline_rank": 5,
+      "reranked_rank": 2,
+      "baseline_top3": [
+        "Recital 86",
+        "Recital 85",
+        "Article 33"
+      ],
+      "reranked_top3": [
+        "Recital 85",
+        "Article 34",
+        "Recital 86"
+      ]
+    },
+    {
+      "qid": "Q3",
+      "category": "buried clause / role limit",
+      "gold_article": "Article 26",
+      "baseline_rank": 8,
+      "reranked_rank": 1,
+      "baseline_top3": [
+        "Recital 40",
+        "Recital 74",
+        "Recital 79"
+      ],
+      "reranked_top3": [
+        "Article 26",
+        "Recital 79",
+        "Article 47"
+      ]
+    },
+    {
+      "qid": "Q4",
+      "category": "constraint / buried clause",
+      "gold_article": "Article 25",
+      "baseline_rank": 4,
+      "reranked_rank": 7,
+      "baseline_top3": [
+        "Recital 78",
+        "Recital 63",
+        "Recital 7"
+      ],
+      "reranked_top3": [
+        "Recital 78",
+        "Recital 4",
+        "Recital 78"
+      ]
+    },
+    {
+      "qid": "Q5",
+      "category": "role limit / contract",
+      "gold_article": "Article 28",
+      "baseline_rank": 6,
+      "reranked_rank": 7,
+      "baseline_top3": [
+        "Article 13",
+        "Recital 155",
+        "Recital 81"
+      ],
+      "reranked_top3": [
+        "Article 13",
+        "Recital 40",
+        "Recital 155"
+      ]
+    },
+    {
+      "qid": "Q6",
+      "category": "regression probe",
+      "gold_article": "Article 5",
+      "baseline_rank": 1,
+      "reranked_rank": 4,
+      "baseline_top3": [
+        "Article 5",
+        "Recital 39",
+        "Recital 171"
+      ],
+      "reranked_top3": [
+        "Recital 137",
+        "Recital 39",
+        "Article 12"
+      ]
+    },
+    {
+      "qid": "Q7",
+      "category": "recall ceiling (>10)",
+      "gold_article": "Article 32",
+      "baseline_rank": null,
+      "reranked_rank": null,
+      "baseline_top3": [
+        "Recital 83",
+        "Recital 49",
+        "Recital 64"
+      ],
+      "reranked_top3": [
+        "Recital 83",
+        "Recital 88",
+        "Recital 28"
+      ]
+    },
+    {
+      "qid": "Q8",
+      "category": "recall ceiling (>10)",
+      "gold_article": "Article 48",
+      "baseline_rank": null,
+      "reranked_rank": null,
+      "baseline_top3": [
+        "Recital 4",
+        "Recital 50",
+        "Article 13"
+      ],
+      "reranked_top3": [
+        "Recital 12",
+        "Recital 105",
+        "Recital 31"
+      ]
+    },
+    {
+      "qid": "Q9",
+      "category": "exception / corner case",
+      "gold_article": "Article 9",
+      "baseline_rank": 3,
+      "reranked_rank": 2,
+      "baseline_top3": [
+        "Recital 63",
+        "Recital 69",
+        "Article 9"
+      ],
+      "reranked_top3": [
+        "Recital 63",
+        "Article 9",
+        "Recital 91"
+      ]
+    },
+    {
+      "qid": "Q10",
+      "category": "exception / corner case",
+      "gold_article": "Article 17 / Recital 65",
+      "baseline_rank": 1,
+      "reranked_rank": 1,
+      "baseline_top3": [
+        "Recital 65",
+        "Recital 81",
+        "Article 17"
+      ],
+      "reranked_top3": [
+        "Recital 65",
+        "Article 17",
+        "Article 7"
+      ]
+    },
+    {
+      "qid": "Q11",
+      "category": "negation / role limit",
+      "gold_article": "Article 29",
+      "baseline_rank": 1,
+      "reranked_rank": 1,
+      "baseline_top3": [
+        "Article 29",
+        "Article 28",
+        "Recital 80"
+      ],
+      "reranked_top3": [
+        "Article 29",
+        "Article 28",
+        "Recital 81"
+      ]
+    },
+    {
+      "qid": "Q12",
+      "category": "negation / scope",
+      "gold_article": "Article 2 / Recital 18",
+      "baseline_rank": 2,
+      "reranked_rank": 2,
+      "baseline_top3": [
+        "Recital 152",
+        "Recital 18",
+        "Recital 41"
+      ],
+      "reranked_top3": [
+        "Recital 16",
+        "Recital 18",
+        "Recital 27"
+      ]
+    },
+    {
+      "qid": "C1",
+      "category": "CONTROL",
+      "gold_article": "Article 83",
+      "baseline_rank": 1,
+      "reranked_rank": 1,
+      "baseline_top3": [
+        "Article 83",
+        "Recital 148",
+        "Article 83"
+      ],
+      "reranked_top3": [
+        "Article 83",
+        "Recital 148",
+        "Article 83"
+      ]
+    },
+    {
+      "qid": "C2",
+      "category": "CONTROL",
+      "gold_article": "Article 4",
+      "baseline_rank": 1,
+      "reranked_rank": 1,
+      "baseline_top3": [
+        "Article 4",
+        "Article 13",
+        "Article 4"
+      ],
+      "reranked_top3": [
+        "Article 4",
+        "Article 13",
+        "Recital 35"
+      ]
+    }
+  ]
+}

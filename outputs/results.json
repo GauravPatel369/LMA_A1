@@ -1,0 +1,1998 @@
+[
+  {
+    "qid": "Q1",
+    "category": "negation / jargon gap",
+    "query": "Can a bank refuse my loan application using only an algorithm with no human involved?",
+    "gold_article": "Article 22 / Recital 71",
+    "gold_probes": [
+      "decision based solely on automated processing",
+      "automatic refusal of an online credit application"
+    ],
+    "why": "Negation AND vocabulary gap at once. Art 22(1) is a negative right - 'the right NOT to be subject to' - and 'algorithm' and 'loan' occur 0 times in the corpus.",
+    "gold_chunk_ids": [
+      84,
+      252
+    ],
+    "candidates": [
+      {
+        "chunk_id": 84,
+        "label": "Recital 71",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.6316583156585693,
+        "ce_rank": 1,
+        "ce_score": -4.848586082458496
+      },
+      {
+        "chunk_id": 19,
+        "label": "Recital 18",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.6486790180206299,
+        "ce_rank": 2,
+        "ce_score": -10.830026626586914
+      },
+      {
+        "chunk_id": 97,
+        "label": "Recital 80",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.6218398809432983,
+        "ce_rank": 3,
+        "ce_score": -11.271000862121582
+      },
+      {
+        "chunk_id": 79,
+        "label": "Recital 67",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.6205574870109558,
+        "ce_rank": 4,
+        "ce_score": -11.292388916015625
+      },
+      {
+        "chunk_id": 31,
+        "label": "Recital 28",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.6325746774673462,
+        "ce_rank": 5,
+        "ce_score": -11.325968742370605
+      },
+      {
+        "chunk_id": 52,
+        "label": "Recital 47",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6219794750213623,
+        "ce_rank": 6,
+        "ce_score": -11.334227561950684
+      },
+      {
+        "chunk_id": 266,
+        "label": "Article 29",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.6226840019226074,
+        "ce_rank": 7,
+        "ce_score": -11.343446731567383
+      },
+      {
+        "chunk_id": 53,
+        "label": "Recital 47",
+        "part": 1,
+        "dense_rank": 9,
+        "dense_score": 0.6208363771438599,
+        "ce_rank": 8,
+        "ce_score": -11.344622611999512
+      },
+      {
+        "chunk_id": 47,
+        "label": "Recital 43",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.6345037221908569,
+        "ce_rank": 9,
+        "ce_score": -11.360048294067383
+      },
+      {
+        "chunk_id": 32,
+        "label": "Recital 29",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6213350296020508,
+        "ce_rank": 10,
+        "ce_score": -11.367549896240234
+      }
+    ],
+    "baseline_top3": [
+      "Recital 18",
+      "Recital 43",
+      "Recital 28"
+    ],
+    "reranked_top3": [
+      "Recital 71",
+      "Recital 18",
+      "Recital 80"
+    ],
+    "gold_rank_baseline": 4,
+    "gold_rank_reranked": 1,
+    "gold_in_top3_baseline": false,
+    "gold_in_top3_reranked": true,
+    "answer_1": "The provided context does not contain the answer to this question. The excerpts provided (Recitals 18, 43, and 28) discuss the scope of the Regulation regarding household activities, the conditions for valid consent, and the use of pseudonymization, but they do not address automated decision-making, algorithmic lending, or the right to human intervention in credit decisions.",
+    "answer_2": "Based on the provided context, a bank generally **cannot** refuse a loan application using only an algorithm with no human involved, unless specific exceptions apply.\n\n**Recital 71** states that a data subject has the right \"not to be subject to a decision... which is based solely on automated processing and which produces legal effects concerning him or her or similarly significantly affects him or her, such as automatic refusal of an online credit application... without any human intervention.\"\n\nHowever, **Recital 71** also notes that such decision-making is allowed if it is:\n1.  \"expressly authorised by Union or Member State law... including for fraud and tax-evasion monitoring and prevention purposes... and to ensure the security and reliability of a service provided by the controller\";\n2.  \"necessary for the entering or performance of a contract between the data subject and a controller\"; or\n3.  Based on the data subject's explicit consent (the text cuts off at \"or when the data subject\", implying this standard GDPR exception, but strictly relying on the provided text, the first two conditions are explicitly listed).\n\nTherefore, a purely automated refusal is prohibited unless it falls under the specific legal authorizations or contractual necessities mentioned in **Recital 71**.",
+    "ans1_cites_gold": false,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.01396260000183247,
+      "search_s": 7.639999967068434e-05,
+      "rerank_s": 0.10998049999761861,
+      "llm_1_s": 0.4215102000016486,
+      "llm_2_s": 5.221237400008249
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 346,
+        "completion_tokens": 79
+      },
+      "answer_2": {
+        "prompt_tokens": 642,
+        "completion_tokens": 259
+      }
+    }
+  },
+  {
+    "qid": "Q2",
+    "category": "keyword trap / distractor",
+    "query": "When must we tell the affected individuals themselves about a breach?",
+    "gold_article": "Article 34",
+    "gold_probes": [
+      "communicate the personal data breach to the data subject without undue delay"
+    ],
+    "why": "Art 33 (notify the regulator) and Recitals 85/86 share almost all of the breach vocabulary and outrank the article that actually answers this.",
+    "gold_chunk_ids": [
+      275
+    ],
+    "candidates": [
+      {
+        "chunk_id": 104,
+        "label": "Recital 85",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.7174006104469299,
+        "ce_rank": 1,
+        "ce_score": -0.4414352774620056
+      },
+      {
+        "chunk_id": 275,
+        "label": "Article 34",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.7067811489105225,
+        "ce_rank": 2,
+        "ce_score": -2.8013155460357666
+      },
+      {
+        "chunk_id": 105,
+        "label": "Recital 86",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.7271192073822021,
+        "ce_rank": 3,
+        "ce_score": -2.885169744491577
+      },
+      {
+        "chunk_id": 107,
+        "label": "Recital 88",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.7050607204437256,
+        "ce_rank": 4,
+        "ce_score": -3.3831934928894043
+      },
+      {
+        "chunk_id": 273,
+        "label": "Article 33",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6818562746047974,
+        "ce_rank": 5,
+        "ce_score": -3.5954062938690186
+      },
+      {
+        "chunk_id": 276,
+        "label": "Article 34",
+        "part": 1,
+        "dense_rank": 7,
+        "dense_score": 0.7025043964385986,
+        "ce_rank": 6,
+        "ce_score": -4.276996612548828
+      },
+      {
+        "chunk_id": 106,
+        "label": "Recital 87",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.7079554796218872,
+        "ce_rank": 7,
+        "ce_score": -4.359657287597656
+      },
+      {
+        "chunk_id": 274,
+        "label": "Article 33",
+        "part": 1,
+        "dense_rank": 3,
+        "dense_score": 0.7113150358200073,
+        "ce_rank": 8,
+        "ce_score": -4.38838529586792
+      },
+      {
+        "chunk_id": 114,
+        "label": "Recital 94",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6316450834274292,
+        "ce_rank": 9,
+        "ce_score": -9.472116470336914
+      },
+      {
+        "chunk_id": 71,
+        "label": "Recital 61",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.6151252388954163,
+        "ce_rank": 10,
+        "ce_score": -10.242694854736328
+      }
+    ],
+    "baseline_top3": [
+      "Recital 86",
+      "Recital 85",
+      "Article 33"
+    ],
+    "reranked_top3": [
+      "Recital 85",
+      "Article 34",
+      "Recital 86"
+    ],
+    "gold_rank_baseline": 5,
+    "gold_rank_reranked": 2,
+    "gold_in_top3_baseline": false,
+    "gold_in_top3_reranked": true,
+    "answer_1": "You must communicate the personal data breach to the data subject **without undue delay** when the breach is **likely to result in a high risk** to the rights and freedoms of the natural person.\n\nThe communication should be made **as soon as reasonably feasible** and in close cooperation with the supervisory authority.\n\n**Source:** Recital 86",
+    "answer_2": "You must communicate the personal data breach to the data subject **without undue delay** when the breach is **likely to result in a high risk to the rights and freedoms of natural persons**.\n\nThis obligation is subject to exceptions where communication is not required if:\n1.  The controller has implemented appropriate technical and organisational protection measures (such as encryption) that render the personal data unintelligible to unauthorised persons;\n2.  The controller has taken subsequent measures ensuring that the high risk is no longer likely to materialise; or\n3.  Communication would involve disproportionate effort (in which case, a public communication or similar measure must be used instead).\n\n**Sources:**\n*   **Article 34(1)**: \"When the personal data breach is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall communicate the personal data breach to the data subject without undue delay.\"\n*   **Article 34(3)**: Lists the conditions under which communication to the data subject is not required.\n*   **Recital 86**: Confirms the controller should communicate \"without undue delay\" where the breach is \"likely to result in a high risk to the rights and freedoms of the natural person.\"",
+    "ans1_cites_gold": false,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.030158199995639734,
+      "search_s": 0.0001142999972216785,
+      "rerank_s": 0.33869260000938084,
+      "llm_1_s": 0.40445079999335576,
+      "llm_2_s": 0.8063096999976551
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 607,
+        "completion_tokens": 72
+      },
+      "answer_2": {
+        "prompt_tokens": 753,
+        "completion_tokens": 259
+      }
+    }
+  },
+  {
+    "qid": "Q3",
+    "category": "buried clause / role limit",
+    "query": "If two companies decide together how data is used, who is responsible?",
+    "gold_article": "Article 26",
+    "gold_probes": [
+      "jointly determine the purposes and means of processing"
+    ],
+    "why": "Asked in plain language; the regulation says 'joint controllers'. Gold is buried at #8 - the assignment's 'vital chunk at ranks 4-10' case, exactly.",
+    "gold_chunk_ids": [
+      258
+    ],
+    "candidates": [
+      {
+        "chunk_id": 258,
+        "label": "Article 26",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6780807971954346,
+        "ce_rank": 1,
+        "ce_score": -3.3138182163238525
+      },
+      {
+        "chunk_id": 96,
+        "label": "Recital 79",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.6840395927429199,
+        "ce_rank": 2,
+        "ce_score": -4.6130805015563965
+      },
+      {
+        "chunk_id": 312,
+        "label": "Article 47",
+        "part": 2,
+        "dense_rank": 10,
+        "dense_score": 0.6736148595809937,
+        "ce_rank": 3,
+        "ce_score": -4.851448059082031
+      },
+      {
+        "chunk_id": 100,
+        "label": "Recital 81",
+        "part": 1,
+        "dense_rank": 4,
+        "dense_score": 0.682746171951294,
+        "ce_rank": 4,
+        "ce_score": -5.554608345031738
+      },
+      {
+        "chunk_id": 44,
+        "label": "Recital 40",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.6928993463516235,
+        "ce_rank": 5,
+        "ce_score": -5.722139835357666
+      },
+      {
+        "chunk_id": 83,
+        "label": "Recital 70",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6753243803977966,
+        "ce_rank": 6,
+        "ce_score": -6.15454626083374
+      },
+      {
+        "chunk_id": 235,
+        "label": "Article 13",
+        "part": 2,
+        "dense_rank": 7,
+        "dense_score": 0.6797800064086914,
+        "ce_rank": 7,
+        "ce_score": -6.639451026916504
+      },
+      {
+        "chunk_id": 145,
+        "label": "Recital 123",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.6822465658187866,
+        "ce_rank": 8,
+        "ce_score": -7.190463542938232
+      },
+      {
+        "chunk_id": 310,
+        "label": "Article 47",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6807736754417419,
+        "ce_rank": 9,
+        "ce_score": -7.459876537322998
+      },
+      {
+        "chunk_id": 90,
+        "label": "Recital 74",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.6875710487365723,
+        "ce_rank": 10,
+        "ce_score": -7.700380325317383
+      }
+    ],
+    "baseline_top3": [
+      "Recital 40",
+      "Recital 74",
+      "Recital 79"
+    ],
+    "reranked_top3": [
+      "Article 26",
+      "Recital 79",
+      "Article 47"
+    ],
+    "gold_rank_baseline": 8,
+    "gold_rank_reranked": 1,
+    "gold_in_top3_baseline": false,
+    "gold_in_top3_reranked": true,
+    "answer_1": "Based on the provided context, if two companies decide together how data is used (determining the purposes and means of the processing jointly), the responsibility is allocated to them as **joint controllers**.\n\n**Recital 79** states that the Regulation requires \"a clear allocation of the responsibilities... including where a controller determines the purposes and means of the processing jointly with other controllers.\"\n\nAdditionally, **Recital 74** establishes that \"The responsibility and liability of the controller for any processing of personal data carried out by the controller or on the controller's behalf should be established,\" and the controller is obliged to implement appropriate measures and demonstrate compliance.",
+    "answer_2": "Based on the provided context, if two companies decide together how data is used (i.e., they jointly determine the purposes and means of processing), they are **joint controllers**.\n\nThey are responsible for determining their respective responsibilities for compliance with the obligations under the Regulation in a transparent manner. This includes responsibilities regarding the exercising of data subject rights and providing information referred to in Articles 13 and 14. They must establish an arrangement between them to reflect their respective roles and relationships vis-à-vis the data subjects, unless their responsibilities are already determined by Union or Member State law.\n\n**Source:** Article 26 - Joint controllers (Paragraphs 1 and 2).",
+    "ans1_cites_gold": false,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.0571431999997003,
+      "search_s": 0.00016700000560376793,
+      "rerank_s": 0.269864999994752,
+      "llm_1_s": 0.4774751999939326,
+      "llm_2_s": 0.5565916999912588
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 388,
+        "completion_tokens": 132
+      },
+      "answer_2": {
+        "prompt_tokens": 671,
+        "completion_tokens": 138
+      }
+    }
+  },
+  {
+    "qid": "Q4",
+    "category": "constraint / buried clause",
+    "query": "Should privacy be built into a product while it is being designed?",
+    "gold_article": "Article 25",
+    "gold_probes": [
+      "designed to implement data-protection principles"
+    ],
+    "why": "Headroom case that the cross-encoder does NOT rescue: gold enters at #4 and is pushed to #7. Kept because excluding it would flatter the re-ranker.",
+    "gold_chunk_ids": [
+      256
+    ],
+    "candidates": [
+      {
+        "chunk_id": 94,
+        "label": "Recital 78",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.711234986782074,
+        "ce_rank": 1,
+        "ce_score": -5.082183361053467
+      },
+      {
+        "chunk_id": 3,
+        "label": "Recital 4",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.6580022573471069,
+        "ce_rank": 2,
+        "ce_score": -6.0464863777160645
+      },
+      {
+        "chunk_id": 95,
+        "label": "Recital 78",
+        "part": 1,
+        "dense_rank": 8,
+        "dense_score": 0.6619570255279541,
+        "ce_rank": 3,
+        "ce_score": -6.310474872589111
+      },
+      {
+        "chunk_id": 6,
+        "label": "Recital 7",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.6802679896354675,
+        "ce_rank": 4,
+        "ce_score": -9.043875694274902
+      },
+      {
+        "chunk_id": 74,
+        "label": "Recital 63",
+        "part": 1,
+        "dense_rank": 2,
+        "dense_score": 0.7040112018585205,
+        "ce_rank": 5,
+        "ce_score": -9.2718505859375
+      },
+      {
+        "chunk_id": 102,
+        "label": "Recital 83",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6649841666221619,
+        "ce_rank": 6,
+        "ce_score": -9.51826286315918
+      },
+      {
+        "chunk_id": 256,
+        "label": "Article 25",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.6753591895103455,
+        "ce_rank": 7,
+        "ce_score": -9.563920974731445
+      },
+      {
+        "chunk_id": 68,
+        "label": "Recital 58",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.6724410057067871,
+        "ce_rank": 8,
+        "ce_score": -9.945659637451172
+      },
+      {
+        "chunk_id": 47,
+        "label": "Recital 43",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.663018524646759,
+        "ce_rank": 9,
+        "ce_score": -10.075723648071289
+      },
+      {
+        "chunk_id": 107,
+        "label": "Recital 88",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6588408350944519,
+        "ce_rank": 10,
+        "ce_score": -10.390583992004395
+      }
+    ],
+    "baseline_top3": [
+      "Recital 78",
+      "Recital 63",
+      "Recital 7"
+    ],
+    "reranked_top3": [
+      "Recital 78",
+      "Recital 4",
+      "Recital 78"
+    ],
+    "gold_rank_baseline": 4,
+    "gold_rank_reranked": 7,
+    "gold_in_top3_baseline": false,
+    "gold_in_top3_reranked": false,
+    "answer_1": "Yes, privacy should be built into a product while it is being designed. According to **Recital 78**, producers of products, services, and applications should be encouraged to \"take into account the right to data protection when developing and designing such products, services and applications.\" This recital explicitly references the principles of \"data protection by design and data protection by default\" as measures that controllers should implement to demonstrate compliance.",
+    "answer_2": "Yes, privacy should be built into a product while it is being designed. According to **Recital 78**, producers of products, services, and applications should be encouraged to \"take into account the right to data protection when developing and designing such products, services and applications.\" This aligns with the principles of \"data protection by design and data protection by default,\" which require that appropriate technical and organisational measures be taken to ensure compliance with the Regulation.",
+    "ans1_cites_gold": false,
+    "ans2_cites_gold": false,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.08693420000781771,
+      "search_s": 0.0001601000112714246,
+      "rerank_s": 0.3014990000083344,
+      "llm_1_s": 0.4138397999922745,
+      "llm_2_s": 0.7747912999911932
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 515,
+        "completion_tokens": 86
+      },
+      "answer_2": {
+        "prompt_tokens": 543,
+        "completion_tokens": 93
+      }
+    }
+  },
+  {
+    "qid": "Q5",
+    "category": "role limit / contract",
+    "query": "What has to be written in the contract with a company that handles data for us?",
+    "gold_article": "Article 28",
+    "gold_probes": [
+      "processes the personal data only on documented instructions"
+    ],
+    "why": "Second headroom case the cross-encoder does not rescue (#6 -> #7). Two of the five rank-4-10 queries fail; that ratio is the honest headline.",
+    "gold_chunk_ids": [
+      261,
+      262
+    ],
+    "candidates": [
+      {
+        "chunk_id": 235,
+        "label": "Article 13",
+        "part": 2,
+        "dense_rank": 1,
+        "dense_score": 0.6914151906967163,
+        "ce_rank": 1,
+        "ce_score": -2.3667407035827637
+      },
+      {
+        "chunk_id": 44,
+        "label": "Recital 40",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.666419267654419,
+        "ce_rank": 2,
+        "ce_score": -2.5591344833374023
+      },
+      {
+        "chunk_id": 184,
+        "label": "Recital 155",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.6802143454551697,
+        "ce_rank": 3,
+        "ce_score": -3.514145851135254
+      },
+      {
+        "chunk_id": 222,
+        "label": "Article 7",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6538324356079102,
+        "ce_rank": 4,
+        "ce_score": -4.2223381996154785
+      },
+      {
+        "chunk_id": 100,
+        "label": "Recital 81",
+        "part": 1,
+        "dense_rank": 3,
+        "dense_score": 0.675504207611084,
+        "ce_rank": 5,
+        "ce_score": -4.916420936584473
+      },
+      {
+        "chunk_id": 391,
+        "label": "Article 88",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.6589235067367554,
+        "ce_rank": 6,
+        "ce_score": -6.077849388122559
+      },
+      {
+        "chunk_id": 261,
+        "label": "Article 28",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6591610908508301,
+        "ce_rank": 7,
+        "ce_score": -6.097829818725586
+      },
+      {
+        "chunk_id": 128,
+        "label": "Recital 108",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.6529655456542969,
+        "ce_rank": 8,
+        "ce_score": -6.77994441986084
+      },
+      {
+        "chunk_id": 136,
+        "label": "Recital 114",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.6597813963890076,
+        "ce_rank": 9,
+        "ce_score": -7.559520721435547
+      },
+      {
+        "chunk_id": 310,
+        "label": "Article 47",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6539095640182495,
+        "ce_rank": 10,
+        "ce_score": -9.05009651184082
+      }
+    ],
+    "baseline_top3": [
+      "Article 13",
+      "Recital 155",
+      "Recital 81"
+    ],
+    "reranked_top3": [
+      "Article 13",
+      "Recital 40",
+      "Recital 155"
+    ],
+    "gold_rank_baseline": 6,
+    "gold_rank_reranked": 7,
+    "gold_in_top3_baseline": false,
+    "gold_in_top3_reranked": false,
+    "answer_1": "Based on the provided context, the specific content that must be written in the contract is not fully detailed, but the context indicates that the controller and processor may choose to use an **individual contract** or **standard contractual clauses**.\n\nThese clauses are adopted either directly by the Commission or by a supervisory authority in accordance with the consistency mechanism and then adopted by the Commission.\n\n**Source:** Recital 81",
+    "answer_2": "The provided context does not contain the answer to this question.\n\nThe context includes Article 13 (regarding information to be provided to data subjects), Recital 40 (regarding lawful bases for processing), and Recital 155 (regarding employee data). It does not contain the text of Article 28 (which typically governs the requirements for contracts between a controller and a processor) or any other provision specifying the mandatory clauses for a contract with a data handler/processor.",
+    "ans1_cites_gold": false,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.04991050000535324,
+      "search_s": 0.00020059999951627105,
+      "rerank_s": 0.2542408000008436,
+      "llm_1_s": 0.5456348000006983,
+      "llm_2_s": 0.6511919000040507
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 572,
+        "completion_tokens": 84
+      },
+      "answer_2": {
+        "prompt_tokens": 570,
+        "completion_tokens": 103
+      }
+    }
+  },
+  {
+    "qid": "Q6",
+    "category": "regression probe",
+    "query": "How long are we allowed to keep customer records?",
+    "gold_article": "Article 5",
+    "gold_probes": [
+      "no longer than is necessary for the purposes"
+    ],
+    "why": "The baseline puts the storage-limitation principle at #1 and re-ranking demotes it to #4. This is what the trade-off costs.",
+    "gold_chunk_ids": [
+      216,
+      217
+    ],
+    "candidates": [
+      {
+        "chunk_id": 162,
+        "label": "Recital 137",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.6662765741348267,
+        "ce_rank": 1,
+        "ce_score": -6.633238315582275
+      },
+      {
+        "chunk_id": 43,
+        "label": "Recital 39",
+        "part": 1,
+        "dense_rank": 2,
+        "dense_score": 0.6800352334976196,
+        "ce_rank": 2,
+        "ce_score": -6.974889278411865
+      },
+      {
+        "chunk_id": 231,
+        "label": "Article 12",
+        "part": 1,
+        "dense_rank": 4,
+        "dense_score": 0.670181155204773,
+        "ce_rank": 3,
+        "ce_score": -7.180866241455078
+      },
+      {
+        "chunk_id": 217,
+        "label": "Article 5",
+        "part": 1,
+        "dense_rank": 1,
+        "dense_score": 0.7024771571159363,
+        "ce_rank": 4,
+        "ce_score": -7.405451774597168
+      },
+      {
+        "chunk_id": 201,
+        "label": "Recital 171",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.6733310222625732,
+        "ce_rank": 5,
+        "ce_score": -7.414865493774414
+      },
+      {
+        "chunk_id": 267,
+        "label": "Article 30",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.6610645055770874,
+        "ce_rank": 6,
+        "ce_score": -9.290424346923828
+      },
+      {
+        "chunk_id": 268,
+        "label": "Article 30",
+        "part": 1,
+        "dense_rank": 10,
+        "dense_score": 0.6597630977630615,
+        "ce_rank": 7,
+        "ce_score": -9.55112361907959
+      },
+      {
+        "chunk_id": 269,
+        "label": "Article 30",
+        "part": 2,
+        "dense_rank": 8,
+        "dense_score": 0.6610400080680847,
+        "ce_rank": 8,
+        "ce_score": -9.907955169677734
+      },
+      {
+        "chunk_id": 76,
+        "label": "Recital 65",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6623572707176208,
+        "ce_rank": 9,
+        "ce_score": -10.504826545715332
+      },
+      {
+        "chunk_id": 72,
+        "label": "Recital 62",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.659809947013855,
+        "ce_rank": 10,
+        "ce_score": -11.050273895263672
+      }
+    ],
+    "baseline_top3": [
+      "Article 5",
+      "Recital 39",
+      "Recital 171"
+    ],
+    "reranked_top3": [
+      "Recital 137",
+      "Recital 39",
+      "Article 12"
+    ],
+    "gold_rank_baseline": 1,
+    "gold_rank_reranked": 4,
+    "gold_in_top3_baseline": true,
+    "gold_in_top3_reranked": false,
+    "answer_1": "Based on the provided context, there is no specific fixed time limit (e.g., \"5 years\" or \"10 years\") stated for keeping customer records. Instead, the context provides the following principles:\n\n1.  **Storage Limitation:** Personal data must be kept in a form which permits identification of data subjects for **no longer than is necessary** for the purposes for which the personal data are processed (**Article 5(1)(e)**).\n2.  **Strict Minimum:** The period for which personal data are stored should be limited to a **strict minimum** (**Recital 39**).\n3.  **Controller Responsibility:** The controller should establish **time limits** for erasure or for a periodic review to ensure data are not kept longer than necessary (**Recital 39**).\n4.  **Exceptions:** Data may be stored for longer periods if processed solely for archiving purposes in the public interest, scientific or historical research purposes, or statistical purposes, subject to appropriate safeguards (**Article 5(1)(e)**).\n\nTherefore, the allowed duration is determined by the specific purpose of the processing and must be the minimum necessary time, as defined by the controller.",
+    "answer_2": "Based on the provided context, there is no specific fixed duration (e.g., \"5 years\" or \"10 years\") stated for how long customer records may be kept.\n\nHowever, **Recital 39** states that \"the period for which the personal data are stored is limited to a strict minimum\" and that \"time limits should be established by the controller for erasure or for a periodic review\" to ensure data are not kept longer than necessary.\n\nTherefore, the allowed duration is not a set number of days or years, but rather a period that must be limited to a strict minimum and defined by the controller through established time limits for erasure or review.",
+    "ans1_cites_gold": true,
+    "ans2_cites_gold": false,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": false,
+    "timings": {
+      "embed_s": 0.042142800011788495,
+      "search_s": 0.00015600000915583223,
+      "rerank_s": 0.2745594000007259,
+      "llm_1_s": 0.7740783000044758,
+      "llm_2_s": 0.4970878000021912
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 646,
+        "completion_tokens": 247
+      },
+      "answer_2": {
+        "prompt_tokens": 626,
+        "completion_tokens": 139
+      }
+    }
+  },
+  {
+    "qid": "Q7",
+    "category": "recall ceiling (>10)",
+    "query": "What security measures protect against hackers stealing our database?",
+    "gold_article": "Article 32",
+    "gold_probes": [
+      "pseudonymisation and encryption of personal data"
+    ],
+    "why": "'hackers' and 'database' are absent from the corpus; all 10 candidates come back as recitals and Art 32 sits at rank 18. Re-ranking fixes ordering, not recall.",
+    "gold_chunk_ids": [
+      271
+    ],
+    "candidates": [
+      {
+        "chunk_id": 102,
+        "label": "Recital 83",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.6790958642959595,
+        "ce_rank": 1,
+        "ce_score": -3.100019931793213
+      },
+      {
+        "chunk_id": 107,
+        "label": "Recital 88",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.6412764191627502,
+        "ce_rank": 2,
+        "ce_score": -4.6744065284729
+      },
+      {
+        "chunk_id": 31,
+        "label": "Recital 28",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.625415563583374,
+        "ce_rank": 3,
+        "ce_score": -6.39811897277832
+      },
+      {
+        "chunk_id": 55,
+        "label": "Recital 49",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.6614584922790527,
+        "ce_rank": 4,
+        "ce_score": -6.481162071228027
+      },
+      {
+        "chunk_id": 94,
+        "label": "Recital 78",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6293468475341797,
+        "ce_rank": 5,
+        "ce_score": -6.59938383102417
+      },
+      {
+        "chunk_id": 104,
+        "label": "Recital 85",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6224212646484375,
+        "ce_rank": 6,
+        "ce_score": -7.501254081726074
+      },
+      {
+        "chunk_id": 128,
+        "label": "Recital 108",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6212654113769531,
+        "ce_rank": 7,
+        "ce_score": -7.735517501831055
+      },
+      {
+        "chunk_id": 88,
+        "label": "Recital 73",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.6208089590072632,
+        "ce_rank": 8,
+        "ce_score": -8.048554420471191
+      },
+      {
+        "chunk_id": 75,
+        "label": "Recital 64",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.6550111174583435,
+        "ce_rank": 9,
+        "ce_score": -9.396215438842773
+      },
+      {
+        "chunk_id": 74,
+        "label": "Recital 63",
+        "part": 1,
+        "dense_rank": 5,
+        "dense_score": 0.6332731246948242,
+        "ce_rank": 10,
+        "ce_score": -10.580759048461914
+      }
+    ],
+    "baseline_top3": [
+      "Recital 83",
+      "Recital 49",
+      "Recital 64"
+    ],
+    "reranked_top3": [
+      "Recital 83",
+      "Recital 88",
+      "Recital 28"
+    ],
+    "gold_rank_baseline": null,
+    "gold_rank_reranked": null,
+    "gold_in_top3_baseline": false,
+    "gold_in_top3_reranked": false,
+    "answer_1": "Based on the provided context, the following security measures and considerations are mentioned to protect against risks such as unauthorized access (which includes hacking):\n\n*   **Encryption:** Recital 83 explicitly lists \"encryption\" as a measure to mitigate risks inherent in processing.\n*   **Preventing unauthorized access:** Recital 49 states that processing is necessary for ensuring network and information security, which includes \"preventing unauthorised access to electronic communications networks.\"\n*   **General risk mitigation:** Recital 83 states that controllers or processors should \"evaluate the risks inherent in the processing and implement measures to mitigate those risks.\" These measures must ensure an appropriate level of security, including confidentiality, taking into account the state of the art and costs.\n\n**Relied upon:** Recital 83, Recital 49.",
+    "answer_2": "Based on the provided context, the specific security measures mentioned to mitigate risks (such as those inherent in processing that could lead to unauthorized access) are **encryption** and **appropriate technical protection measures**.\n\n*   **Recital 83** states that controllers or processors should implement measures to mitigate risks, \"such as **encryption**,\" to ensure an appropriate level of security, including confidentiality.\n*   **Recital 88** refers to personal data being \"protected by **appropriate technical protection measures**,\" which effectively limit the likelihood of misuse.\n\nThe context does not list other specific technical controls (such as firewalls or multi-factor authentication) beyond these examples.",
+    "ans1_cites_gold": false,
+    "ans2_cites_gold": false,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.04285279999021441,
+      "search_s": 0.0001725999900372699,
+      "rerank_s": 0.2913349000009475,
+      "llm_1_s": 1.6113288000051398,
+      "llm_2_s": 0.5095317000086652
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 482,
+        "completion_tokens": 171
+      },
+      "answer_2": {
+        "prompt_tokens": 409,
+        "completion_tokens": 137
+      }
+    }
+  },
+  {
+    "qid": "Q8",
+    "category": "recall ceiling (>10)",
+    "query": "Must we obey a foreign court order demanding European personal data?",
+    "gold_article": "Article 48",
+    "gold_probes": [
+      "may only be recognised or enforceable in any manner if based on an international agreement"
+    ],
+    "why": "Second case outside the candidate window. One such query could be luck; two establish that the stage-1 ceiling is systematic, not anecdotal.",
+    "gold_chunk_ids": [
+      315
+    ],
+    "candidates": [
+      {
+        "chunk_id": 12,
+        "label": "Recital 12",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.6987407207489014,
+        "ce_rank": 1,
+        "ce_score": -0.3165057301521301
+      },
+      {
+        "chunk_id": 125,
+        "label": "Recital 105",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.7030529975891113,
+        "ce_rank": 2,
+        "ce_score": -0.9097965359687805
+      },
+      {
+        "chunk_id": 34,
+        "label": "Recital 31",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6993396282196045,
+        "ce_rank": 3,
+        "ce_score": -3.7554068565368652
+      },
+      {
+        "chunk_id": 137,
+        "label": "Recital 115",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6957663297653198,
+        "ce_rank": 4,
+        "ce_score": -4.065539360046387
+      },
+      {
+        "chunk_id": 3,
+        "label": "Recital 4",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.7109165787696838,
+        "ce_rank": 5,
+        "ce_score": -4.428297996520996
+      },
+      {
+        "chunk_id": 51,
+        "label": "Recital 46",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6977243423461914,
+        "ce_rank": 6,
+        "ce_score": -5.326174259185791
+      },
+      {
+        "chunk_id": 57,
+        "label": "Recital 50",
+        "part": 1,
+        "dense_rank": 2,
+        "dense_score": 0.7080821990966797,
+        "ce_rank": 7,
+        "ce_score": -5.968623638153076
+      },
+      {
+        "chunk_id": 235,
+        "label": "Article 13",
+        "part": 2,
+        "dense_rank": 3,
+        "dense_score": 0.705132007598877,
+        "ce_rank": 8,
+        "ce_score": -6.906336784362793
+      },
+      {
+        "chunk_id": 69,
+        "label": "Recital 59",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.6954878568649292,
+        "ce_rank": 9,
+        "ce_score": -7.207156181335449
+      },
+      {
+        "chunk_id": 72,
+        "label": "Recital 62",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.7016878128051758,
+        "ce_rank": 10,
+        "ce_score": -8.42109489440918
+      }
+    ],
+    "baseline_top3": [
+      "Recital 4",
+      "Recital 50",
+      "Article 13"
+    ],
+    "reranked_top3": [
+      "Recital 12",
+      "Recital 105",
+      "Recital 31"
+    ],
+    "gold_rank_baseline": null,
+    "gold_rank_reranked": null,
+    "gold_in_top3_baseline": false,
+    "gold_in_top3_reranked": false,
+    "answer_1": "The provided context does not contain the answer to this question. The excerpts provided (Recital 4, Recital 50, and Article 13) discuss the balance of fundamental rights, conditions for further processing, and information obligations to data subjects, but they do not address the legal requirements for complying with foreign court orders or international data transfer requests.",
+    "answer_2": "The provided context does not contain the answer to this question.\n\nThe context includes:\n*   **Recital 12**: Discusses the mandate of the European Parliament and Council regarding data protection rules and free movement.\n*   **Recital 105**: Discusses the Commission's assessment of third-country protection levels, specifically mentioning the Council of Europe Convention of 28 January 1981.\n*   **Recital 31**: Discusses public authorities (such as tax and customs authorities) receiving data for official missions and states they should not be regarded as recipients under specific conditions.\n\nNone of these excerpts address the specific legal obligation or procedure for complying with a **foreign court order** demanding European personal data.",
+    "ans1_cites_gold": false,
+    "ans2_cites_gold": false,
+    "ans1_has_key_fact": false,
+    "ans2_has_key_fact": false,
+    "timings": {
+      "embed_s": 0.042743700003484264,
+      "search_s": 0.000152900000102818,
+      "rerank_s": 0.035855399997672066,
+      "llm_1_s": 0.39744649999192916,
+      "llm_2_s": 0.666774000012083
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 698,
+        "completion_tokens": 73
+      },
+      "answer_2": {
+        "prompt_tokens": 439,
+        "completion_tokens": 153
+      }
+    }
+  },
+  {
+    "qid": "Q9",
+    "category": "exception / corner case",
+    "query": "Can a hospital process a patient's medical records in order to provide treatment?",
+    "gold_article": "Article 9",
+    "gold_probes": [
+      "provision of health or social care or treatment"
+    ],
+    "why": "Art 9(1) flatly prohibits health data; the exception is in 9(2)(h). The baseline already reaches it at #3, so this documents the category without a rescue.",
+    "gold_chunk_ids": [
+      226
+    ],
+    "candidates": [
+      {
+        "chunk_id": 73,
+        "label": "Recital 63",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.6475105881690979,
+        "ce_rank": 1,
+        "ce_score": -2.56038236618042
+      },
+      {
+        "chunk_id": 226,
+        "label": "Article 9",
+        "part": 2,
+        "dense_rank": 3,
+        "dense_score": 0.6343639492988586,
+        "ce_rank": 2,
+        "ce_score": -8.603666305541992
+      },
+      {
+        "chunk_id": 111,
+        "label": "Recital 91",
+        "part": 1,
+        "dense_rank": 6,
+        "dense_score": 0.6206344366073608,
+        "ce_rank": 3,
+        "ce_score": -9.410566329956055
+      },
+      {
+        "chunk_id": 62,
+        "label": "Recital 53",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.618342936038971,
+        "ce_rank": 4,
+        "ce_score": -9.497180938720703
+      },
+      {
+        "chunk_id": 188,
+        "label": "Recital 158",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.6200846433639526,
+        "ce_rank": 5,
+        "ce_score": -10.129732131958008
+      },
+      {
+        "chunk_id": 71,
+        "label": "Recital 61",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.6208386421203613,
+        "ce_rank": 6,
+        "ce_score": -10.678349494934082
+      },
+      {
+        "chunk_id": 44,
+        "label": "Recital 40",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.6334090232849121,
+        "ce_rank": 7,
+        "ce_score": -10.806201934814453
+      },
+      {
+        "chunk_id": 56,
+        "label": "Recital 50",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6200487017631531,
+        "ce_rank": 8,
+        "ce_score": -10.837808609008789
+      },
+      {
+        "chunk_id": 82,
+        "label": "Recital 69",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.6376935243606567,
+        "ce_rank": 9,
+        "ce_score": -10.964800834655762
+      },
+      {
+        "chunk_id": 80,
+        "label": "Recital 68",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6199240684509277,
+        "ce_rank": 10,
+        "ce_score": -11.059690475463867
+      }
+    ],
+    "baseline_top3": [
+      "Recital 63",
+      "Recital 69",
+      "Article 9"
+    ],
+    "reranked_top3": [
+      "Recital 63",
+      "Article 9",
+      "Recital 91"
+    ],
+    "gold_rank_baseline": 3,
+    "gold_rank_reranked": 2,
+    "gold_in_top3_baseline": true,
+    "gold_in_top3_reranked": true,
+    "answer_1": "Yes, a hospital can process a patient's medical records in order to provide treatment.\n\nAccording to **Article 9 - Processing of special categories of personal data**, paragraph (h), processing is permitted when it is \"necessary for the purposes of ... the provision of health or social care or treatment ... on the basis of Union or Member State law or pursuant to contract with a health professional and subject to the conditions and safeguards referred to in paragraph 3.\"",
+    "answer_2": "Yes, a hospital can process a patient's medical records in order to provide treatment.\n\nAccording to **Article 9**, processing of special categories of personal data is permitted when it is \"necessary for the purposes of ... medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional and subject to the conditions and safeguards referred to in paragraph 3.\"",
+    "ans1_cites_gold": true,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.030285100001492538,
+      "search_s": 0.0002513999934308231,
+      "rerank_s": 0.2954447999945842,
+      "llm_1_s": 0.4508895000035409,
+      "llm_2_s": 0.4539608000050066
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 713,
+        "completion_tokens": 92
+      },
+      "answer_2": {
+        "prompt_tokens": 738,
+        "completion_tokens": 99
+      }
+    }
+  },
+  {
+    "qid": "Q10",
+    "category": "exception / corner case",
+    "query": "If someone asks us to delete their data, when can we refuse?",
+    "gold_article": "Article 17 / Recital 65",
+    "gold_probes": [
+      "for exercising the right of freedom of expression and information"
+    ],
+    "why": "The erasure carve-outs. Baseline finds them unaided - evidence that an 'exception' query is not automatically hard.",
+    "gold_chunk_ids": [
+      76,
+      77,
+      244
+    ],
+    "candidates": [
+      {
+        "chunk_id": 76,
+        "label": "Recital 65",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.6810274124145508,
+        "ce_rank": 1,
+        "ce_score": -5.277909755706787
+      },
+      {
+        "chunk_id": 243,
+        "label": "Article 17",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.6699970364570618,
+        "ce_rank": 2,
+        "ce_score": -6.015938758850098
+      },
+      {
+        "chunk_id": 222,
+        "label": "Article 7",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.6636453866958618,
+        "ce_rank": 3,
+        "ce_score": -6.17302131652832
+      },
+      {
+        "chunk_id": 100,
+        "label": "Recital 81",
+        "part": 1,
+        "dense_rank": 2,
+        "dense_score": 0.6700217723846436,
+        "ce_rank": 4,
+        "ce_score": -6.609981060028076
+      },
+      {
+        "chunk_id": 35,
+        "label": "Recital 32",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.6689058542251587,
+        "ce_rank": 5,
+        "ce_score": -6.942568778991699
+      },
+      {
+        "chunk_id": 43,
+        "label": "Recital 39",
+        "part": 1,
+        "dense_rank": 10,
+        "dense_score": 0.6490679979324341,
+        "ce_rank": 6,
+        "ce_score": -7.682944297790527
+      },
+      {
+        "chunk_id": 78,
+        "label": "Recital 66",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6598483324050903,
+        "ce_rank": 7,
+        "ce_score": -8.072811126708984
+      },
+      {
+        "chunk_id": 162,
+        "label": "Recital 137",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.656885027885437,
+        "ce_rank": 8,
+        "ce_score": -8.332537651062012
+      },
+      {
+        "chunk_id": 47,
+        "label": "Recital 43",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6562498807907104,
+        "ce_rank": 9,
+        "ce_score": -8.612192153930664
+      },
+      {
+        "chunk_id": 72,
+        "label": "Recital 62",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6557619571685791,
+        "ce_rank": 10,
+        "ce_score": -9.758211135864258
+      }
+    ],
+    "baseline_top3": [
+      "Recital 65",
+      "Recital 81",
+      "Article 17"
+    ],
+    "reranked_top3": [
+      "Recital 65",
+      "Article 17",
+      "Article 7"
+    ],
+    "gold_rank_baseline": 1,
+    "gold_rank_reranked": 1,
+    "gold_in_top3_baseline": true,
+    "gold_in_top3_reranked": true,
+    "answer_1": "Based on the provided context, the text does not explicitly list specific grounds for **refusing** a request for erasure. Instead, it defines the grounds under which a controller **must** erase data (Article 17(1)) and notes that further retention may be lawful in specific circumstances (Recital 65).\n\nHowever, the context implies that a controller is not obligated to erase data if the conditions in Article 17(1) are not met, and specifically mentions that retention is lawful in the following scenarios:\n\n1.  **Freedom of Expression and Information**: Retention is lawful where it is necessary for exercising the right of freedom of expression and information (Recital 65).\n2.  **Legal Obligation**: Retention is lawful where it is necessary for compliance with a legal obligation (Recital 65).\n3.  **Processor Storage Requirements**: A processor may retain data if there is a requirement to store the personal data under Union or Member State law to which the processor is subject (Recital 81).\n\nAdditionally, Article 17(1)(c) states that the right to erasure applies when a data subject objects to processing **and** there are no overriding legitimate grounds for the processing. This implies that if there **are** overriding legitimate grounds for the processing, the controller may not be required to erase the data in response to that specific objection.\n\n**Sources:**\n*   Recital 65\n*   Recital 81\n*   Article 17(1)(c)",
+    "answer_2": "Based on the provided context, the text does not explicitly list specific scenarios where a controller can **refuse** a request for erasure. Instead, it defines the specific grounds where the controller **must** erase the data (Article 17(1)) and notes that retention may remain lawful in certain circumstances (Recital 65).\n\nHowever, by analyzing the conditions under which erasure is **mandatory** in Article 17(1), one can infer that a controller might not be obligated to erase data if none of the following grounds apply:\n*   The data is still necessary for the original purposes.\n*   The data subject has not withdrawn consent (or there is another legal ground for processing).\n*   The data subject has not objected, or there are overriding legitimate grounds for the processing.\n*   The data was not unlawfully processed.\n*   There is no legal obligation to erase it.\n*   The data was not collected in relation to information society services under Article 8(1).\n\nAdditionally, **Recital 65** states that \"the further retention of the personal data should be lawful where it is necessary, for exercising the right of freedom of expression and information, for compliance with a legal obligation...\" This suggests that retention (and thus refusal to erase) may be justified in these specific cases, although the Recital uses the word \"should\" rather than establishing a strict legal right to refuse in the same manner as Article 17 establishes the right to erasure.\n\n**Conclusion:** The provided context does not contain an explicit list of grounds for **refusing** a deletion request. It only lists the grounds for **obligatory** erasure (Article 17(1)) and mentions that retention may be lawful for freedom of expression or legal obligations (Recital 65).",
+    "ans1_cites_gold": true,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.030820100000710227,
+      "search_s": 0.00010269999620504677,
+      "rerank_s": 0.2571029999962775,
+      "llm_1_s": 0.9308780999999726,
+      "llm_2_s": 0.9930867000075523
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 743,
+        "completion_tokens": 322
+      },
+      "answer_2": {
+        "prompt_tokens": 869,
+        "completion_tokens": 376
+      }
+    }
+  },
+  {
+    "qid": "Q11",
+    "category": "negation / role limit",
+    "query": "May staff working for a processor use personal data without instructions from the controller?",
+    "gold_article": "Article 29",
+    "gold_probes": [
+      "shall not process those data except on instructions from the controller"
+    ],
+    "why": "The assignment's 'specific role limits' case with no synonym problem to confound it: query and Art 29 share vocabulary and only the polarity is hard.",
+    "gold_chunk_ids": [
+      266
+    ],
+    "candidates": [
+      {
+        "chunk_id": 266,
+        "label": "Article 29",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.8095783591270447,
+        "ce_rank": 1,
+        "ce_score": 5.928292751312256
+      },
+      {
+        "chunk_id": 262,
+        "label": "Article 28",
+        "part": 1,
+        "dense_rank": 9,
+        "dense_score": 0.743854820728302,
+        "ce_rank": 2,
+        "ce_score": 3.2936153411865234
+      },
+      {
+        "chunk_id": 100,
+        "label": "Recital 81",
+        "part": 1,
+        "dense_rank": 6,
+        "dense_score": 0.7480854988098145,
+        "ce_rank": 3,
+        "ce_score": 2.9370200634002686
+      },
+      {
+        "chunk_id": 261,
+        "label": "Article 28",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.7749743461608887,
+        "ce_rank": 4,
+        "ce_score": 2.361293315887451
+      },
+      {
+        "chunk_id": 97,
+        "label": "Recital 80",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.760313093662262,
+        "ce_rank": 5,
+        "ce_score": 1.900850772857666
+      },
+      {
+        "chunk_id": 80,
+        "label": "Recital 68",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.7426233291625977,
+        "ce_rank": 6,
+        "ce_score": 1.2566503286361694
+      },
+      {
+        "chunk_id": 263,
+        "label": "Article 28",
+        "part": 2,
+        "dense_rank": 4,
+        "dense_score": 0.7549145221710205,
+        "ce_rank": 7,
+        "ce_score": 0.9365859031677246
+      },
+      {
+        "chunk_id": 117,
+        "label": "Recital 97",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.7503523826599121,
+        "ce_rank": 8,
+        "ce_score": 0.8214037418365479
+      },
+      {
+        "chunk_id": 54,
+        "label": "Recital 48",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.7458658218383789,
+        "ce_rank": 9,
+        "ce_score": 0.06045880168676376
+      },
+      {
+        "chunk_id": 229,
+        "label": "Article 11",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.745821475982666,
+        "ce_rank": 10,
+        "ce_score": -0.03649771586060524
+      }
+    ],
+    "baseline_top3": [
+      "Article 29",
+      "Article 28",
+      "Recital 80"
+    ],
+    "reranked_top3": [
+      "Article 29",
+      "Article 28",
+      "Recital 81"
+    ],
+    "gold_rank_baseline": 1,
+    "gold_rank_reranked": 1,
+    "gold_in_top3_baseline": true,
+    "gold_in_top3_reranked": true,
+    "answer_1": "No, staff working for a processor may not use personal data without instructions from the controller, unless required to do so by Union or Member State law.\n\nThis is based on **Article 29**, which states: \"The processor and any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law.\"",
+    "answer_2": "No, staff working for a processor may not use personal data without instructions from the controller, unless required to do so by Union or Member State law.\n\nThis is based on **Article 29**, which states that \"any person acting under the authority of the controller or of the processor, who has access to personal data, shall not process those data except on instructions from the controller, unless required to do so by Union or Member State law.\" Additionally, **Article 28(a)** requires that the processor \"processes the personal data only on documented instructions from the controller... unless required to do so by Union or Member State law.\"",
+    "ans1_cites_gold": true,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.02998190000653267,
+      "search_s": 0.00024539999139960855,
+      "rerank_s": 0.3213361999951303,
+      "llm_1_s": 0.40974600000481587,
+      "llm_2_s": 0.6302463000029093
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 660,
+        "completion_tokens": 94
+      },
+      "answer_2": {
+        "prompt_tokens": 546,
+        "completion_tokens": 130
+      }
+    }
+  },
+  {
+    "qid": "Q12",
+    "category": "negation / scope",
+    "query": "In which situations does this regulation not apply at all?",
+    "gold_article": "Article 2 / Recital 18",
+    "gold_probes": [
+      "purely personal or household activity"
+    ],
+    "why": "Pure negation, no jargon gap. Lands at #2 unaided - with Q11 and Q8 this is the evidence that negation ALONE did not break this bi-encoder.",
+    "gold_chunk_ids": [
+      19,
+      205
+    ],
+    "candidates": [
+      {
+        "chunk_id": 17,
+        "label": "Recital 16",
+        "part": 0,
+        "dense_rank": 4,
+        "dense_score": 0.6973250508308411,
+        "ce_rank": 1,
+        "ce_score": 6.711422443389893
+      },
+      {
+        "chunk_id": 19,
+        "label": "Recital 18",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.7078222632408142,
+        "ce_rank": 2,
+        "ce_score": 5.713809490203857
+      },
+      {
+        "chunk_id": 30,
+        "label": "Recital 27",
+        "part": 0,
+        "dense_rank": 10,
+        "dense_score": 0.6759801506996155,
+        "ce_rank": 3,
+        "ce_score": 4.720830917358398
+      },
+      {
+        "chunk_id": 180,
+        "label": "Recital 152",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.7113469839096069,
+        "ce_rank": 4,
+        "ce_score": 3.595468521118164
+      },
+      {
+        "chunk_id": 28,
+        "label": "Recital 25",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.6960790157318115,
+        "ce_rank": 5,
+        "ce_score": 3.5182430744171143
+      },
+      {
+        "chunk_id": 45,
+        "label": "Recital 41",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.7056840658187866,
+        "ce_rank": 6,
+        "ce_score": 1.7059067487716675
+      },
+      {
+        "chunk_id": 404,
+        "label": "Article 99",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.688213050365448,
+        "ce_rank": 7,
+        "ce_score": 1.1633661985397339
+      },
+      {
+        "chunk_id": 207,
+        "label": "Article 3",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.6887382864952087,
+        "ce_rank": 8,
+        "ce_score": 0.5607038736343384
+      },
+      {
+        "chunk_id": 387,
+        "label": "Article 84",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.6803497672080994,
+        "ce_rank": 9,
+        "ce_score": -0.8474937081336975
+      },
+      {
+        "chunk_id": 395,
+        "label": "Article 91",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.6857596039772034,
+        "ce_rank": 10,
+        "ce_score": -1.4010720252990723
+      }
+    ],
+    "baseline_top3": [
+      "Recital 152",
+      "Recital 18",
+      "Recital 41"
+    ],
+    "reranked_top3": [
+      "Recital 16",
+      "Recital 18",
+      "Recital 27"
+    ],
+    "gold_rank_baseline": 2,
+    "gold_rank_reranked": 2,
+    "gold_in_top3_baseline": true,
+    "gold_in_top3_reranked": true,
+    "answer_1": "Based on the provided context, the Regulation does not apply to the processing of personal data by a natural person in the course of a purely personal or household activity and thus with no connection to a professional or commercial activity.\n\n**Source:** Recital 18",
+    "answer_2": "Based on the provided context, the Regulation does not apply in the following situations:\n\n1.  **Activities outside the scope of Union law:** Specifically, activities concerning national security, or the processing of personal data by Member States when carrying out activities in relation to the common foreign and security policy of the Union (Recital 16).\n2.  **Purely personal or household activities:** The processing of personal data by a natural person in the course of a purely personal or household activity with no connection to a professional or commercial activity (Recital 18).\n3.  **Data of deceased persons:** The personal data of deceased persons (Recital 27).",
+    "ans1_cites_gold": true,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.028156800006399862,
+      "search_s": 0.00012110000534448773,
+      "rerank_s": 0.18919340000138618,
+      "llm_1_s": 0.33866979999584146,
+      "llm_2_s": 1.538597299993853
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 316,
+        "completion_tokens": 53
+      },
+      "answer_2": {
+        "prompt_tokens": 251,
+        "completion_tokens": 139
+      }
+    }
+  },
+  {
+    "qid": "C1",
+    "category": "CONTROL",
+    "query": "What is the maximum administrative fine for an infringement of this regulation?",
+    "gold_article": "Article 83",
+    "gold_probes": [
+      "20 000 000"
+    ],
+    "why": "Control: high lexical overlap, answer exactly where you would expect it.",
+    "gold_chunk_ids": [
+      384,
+      385
+    ],
+    "candidates": [
+      {
+        "chunk_id": 384,
+        "label": "Article 83",
+        "part": 2,
+        "dense_rank": 1,
+        "dense_score": 0.7939833402633667,
+        "ce_rank": 1,
+        "ce_score": 6.2447509765625
+      },
+      {
+        "chunk_id": 176,
+        "label": "Recital 148",
+        "part": 0,
+        "dense_rank": 2,
+        "dense_score": 0.7916696071624756,
+        "ce_rank": 2,
+        "ce_score": 4.138622283935547
+      },
+      {
+        "chunk_id": 382,
+        "label": "Article 83",
+        "part": 0,
+        "dense_rank": 3,
+        "dense_score": 0.7535480260848999,
+        "ce_rank": 3,
+        "ce_score": 3.5910675525665283
+      },
+      {
+        "chunk_id": 178,
+        "label": "Recital 150",
+        "part": 0,
+        "dense_rank": 8,
+        "dense_score": 0.7200673818588257,
+        "ce_rank": 4,
+        "ce_score": 3.2590901851654053
+      },
+      {
+        "chunk_id": 387,
+        "label": "Article 84",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.7272456884384155,
+        "ce_rank": 5,
+        "ce_score": 3.0801751613616943
+      },
+      {
+        "chunk_id": 177,
+        "label": "Recital 149",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.7248635292053223,
+        "ce_rank": 6,
+        "ce_score": 2.5286712646484375
+      },
+      {
+        "chunk_id": 383,
+        "label": "Article 83",
+        "part": 1,
+        "dense_rank": 4,
+        "dense_score": 0.7413756847381592,
+        "ce_rank": 7,
+        "ce_score": 1.3661911487579346
+      },
+      {
+        "chunk_id": 180,
+        "label": "Recital 152",
+        "part": 0,
+        "dense_rank": 9,
+        "dense_score": 0.7117466926574707,
+        "ce_rank": 8,
+        "ce_score": 0.5499569773674011
+      },
+      {
+        "chunk_id": 179,
+        "label": "Recital 151",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.7211949825286865,
+        "ce_rank": 9,
+        "ce_score": -0.27731385827064514
+      },
+      {
+        "chunk_id": 385,
+        "label": "Article 83",
+        "part": 3,
+        "dense_rank": 10,
+        "dense_score": 0.7075982093811035,
+        "ce_rank": 10,
+        "ce_score": -2.2395172119140625
+      }
+    ],
+    "baseline_top3": [
+      "Article 83",
+      "Recital 148",
+      "Article 83"
+    ],
+    "reranked_top3": [
+      "Article 83",
+      "Recital 148",
+      "Article 83"
+    ],
+    "gold_rank_baseline": 1,
+    "gold_rank_reranked": 1,
+    "gold_in_top3_baseline": true,
+    "gold_in_top3_reranked": true,
+    "answer_1": "Based on the provided context, the maximum administrative fine for an infringement of this Regulation is **20 000 000 EUR**, or in the case of an undertaking, **4 % of the total worldwide annual turnover of the preceding financial year**, whichever is higher.\n\nThis applies to infringements of the basic principles for processing, data subjects' rights, and transfers of personal data to third countries or international organisations.\n\n**Source:** Article 83, paragraph 5.",
+    "answer_2": "Based on the provided context, the maximum administrative fine for an infringement of this Regulation is **20 000 000 EUR**, or in the case of an undertaking, **4 % of the total worldwide annual turnover of the preceding financial year**, whichever is higher.\n\nThis applies to infringements of the basic principles for processing, data subjects' rights, and transfers of personal data to third countries or international organisations.\n\n**Source:** Article 83, paragraph 5.",
+    "ans1_cites_gold": true,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.029839199996786192,
+      "search_s": 0.00013250000483822078,
+      "rerank_s": 0.32012140000006184,
+      "llm_1_s": 0.45434840000234544,
+      "llm_2_s": 0.46495939999294933
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 927,
+        "completion_tokens": 101
+      },
+      "answer_2": {
+        "prompt_tokens": 927,
+        "completion_tokens": 101
+      }
+    }
+  },
+  {
+    "qid": "C2",
+    "category": "CONTROL",
+    "query": "What is the definition of personal data?",
+    "gold_article": "Article 4",
+    "gold_probes": [
+      "any information relating to an identified or identifiable natural person"
+    ],
+    "why": "Control: a definition, stated once, in the words the query already uses.",
+    "gold_chunk_ids": [
+      208
+    ],
+    "candidates": [
+      {
+        "chunk_id": 208,
+        "label": "Article 4",
+        "part": 0,
+        "dense_rank": 1,
+        "dense_score": 0.8011114001274109,
+        "ce_rank": 1,
+        "ce_score": 6.466732025146484
+      },
+      {
+        "chunk_id": 235,
+        "label": "Article 13",
+        "part": 2,
+        "dense_rank": 2,
+        "dense_score": 0.7794139385223389,
+        "ce_rank": 2,
+        "ce_score": 5.891651153564453
+      },
+      {
+        "chunk_id": 38,
+        "label": "Recital 35",
+        "part": 0,
+        "dense_rank": 5,
+        "dense_score": 0.7482338547706604,
+        "ce_rank": 3,
+        "ce_score": 4.728135585784912
+      },
+      {
+        "chunk_id": 211,
+        "label": "Article 4",
+        "part": 3,
+        "dense_rank": 4,
+        "dense_score": 0.7511456608772278,
+        "ce_rank": 4,
+        "ce_score": 4.696188449859619
+      },
+      {
+        "chunk_id": 37,
+        "label": "Recital 34",
+        "part": 0,
+        "dense_rank": 6,
+        "dense_score": 0.7404347658157349,
+        "ce_rank": 5,
+        "ce_score": 4.450812339782715
+      },
+      {
+        "chunk_id": 51,
+        "label": "Recital 46",
+        "part": 0,
+        "dense_rank": 7,
+        "dense_score": 0.7331238985061646,
+        "ce_rank": 6,
+        "ce_score": 4.3505473136901855
+      },
+      {
+        "chunk_id": 209,
+        "label": "Article 4",
+        "part": 1,
+        "dense_rank": 3,
+        "dense_score": 0.7698403596878052,
+        "ce_rank": 7,
+        "ce_score": 3.3728785514831543
+      },
+      {
+        "chunk_id": 217,
+        "label": "Article 5",
+        "part": 1,
+        "dense_rank": 9,
+        "dense_score": 0.7278427481651306,
+        "ce_rank": 8,
+        "ce_score": 2.117016077041626
+      },
+      {
+        "chunk_id": 210,
+        "label": "Article 4",
+        "part": 2,
+        "dense_rank": 8,
+        "dense_score": 0.7294342517852783,
+        "ce_rank": 9,
+        "ce_score": 1.8683139085769653
+      },
+      {
+        "chunk_id": 186,
+        "label": "Recital 156",
+        "part": 1,
+        "dense_rank": 10,
+        "dense_score": 0.7225021719932556,
+        "ce_rank": 10,
+        "ce_score": 1.2893730401992798
+      }
+    ],
+    "baseline_top3": [
+      "Article 4",
+      "Article 13",
+      "Article 4"
+    ],
+    "reranked_top3": [
+      "Article 4",
+      "Article 13",
+      "Recital 35"
+    ],
+    "gold_rank_baseline": 1,
+    "gold_rank_reranked": 1,
+    "gold_in_top3_baseline": true,
+    "gold_in_top3_reranked": true,
+    "answer_1": "According to Article 4(1) of the provided context, ‘personal data’ means any information relating to an identified or identifiable natural person (‘data subject’). An identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person.",
+    "answer_2": "According to Article 4(1), “personal data” means any information relating to an identified or identifiable natural person (‘data subject’); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person.",
+    "ans1_cites_gold": true,
+    "ans2_cites_gold": true,
+    "ans1_has_key_fact": true,
+    "ans2_has_key_fact": true,
+    "timings": {
+      "embed_s": 0.028701799994450994,
+      "search_s": 0.00015259999781847,
+      "rerank_s": 0.26048320000700187,
+      "llm_1_s": 0.5041008999978658,
+      "llm_2_s": 0.4413306999922497
+    },
+    "usage": {
+      "answer_1": {
+        "prompt_tokens": 877,
+        "completion_tokens": 100
+      },
+      "answer_2": {
+        "prompt_tokens": 799,
+        "completion_tokens": 95
+      }
+    }
+  }
+]
