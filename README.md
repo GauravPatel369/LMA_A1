@@ -19,12 +19,11 @@ context is the only variable.
 **Google Colab** (CPU runtime is enough — a GPU only changes timings, not results; the numbers reported below were measured on an RTX 4050):
 
 1. Open `RAG_Baseline_vs_Reranking_GDPR.ipynb` in Colab
-2. Add your Groq API key: 🔑 sidebar icon → **Add new secret** → name it
-   `GROQ_API_KEY` → enable notebook access
-3. **Runtime → Run all**
+2. Add your Groq API key:  sidebar icon -> **Add new secret** -> name it  `GROQ_API_KEY` -> enable notebook access
+3. **Runtime -> Run all**
 
-**Kaggle:** enable internet first (Account → Phone Verification, then
-Settings → Internet), add the key under Add-ons → Secrets with the same name,
+**Kaggle:** enable internet first (Account -> Phone Verification, then
+Settings -> Internet), add the key under Add-ons -> Secrets with the same name,
 then run. The notebook reads Colab Secrets, Kaggle Secrets, or a `GROQ_API_KEY`
 environment variable, in that order.
 
